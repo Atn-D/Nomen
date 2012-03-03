@@ -1,9 +1,8 @@
 <!-- INCLUDE overall_header.html -->
 
-<div style="background-color:lightgreen, display: none;">
-	
-</div>
-<!--	<div id="informations_derniere_connection">	
+
+<!--	
+	<div id="informations_derniere_connection">	
   		<!-- IF S_USER_LOGGED_IN -->
 			{LAST_VISIT_DATE} |
   		<!-- ENDIF -->
@@ -26,99 +25,12 @@
 			<a href="{U_MCP}">{L_MCP}</a>
 		<!-- ENDIF -->
 		</div>
-        <div class="entete" style="display:table; vertical-align:middle;">
-<br />
-<center><img src='Autre/image/image.php'/></center> <!-- style="float:right;margin-top:30px;margin-right:70px;" !-->
-
-<br />
-<h1 style="text-align: center; ; font-size:20px; ">
-
-        Adresse serveur :<br />
-        <font color="red">play.sascraft.fr:27050</font><br />
-</h1>
-<br />
-<h1 style="text-align: center; ; font-size:20px; ">
-
-        Vous n'avez plus de minecraft en version 1.0 ?<br />
-        <font color="red"><a href="http://www.mediafire.com/?n158vycivan17mc">Télécharger ici</a></font><br />
-</h1>
-<h3 style="text-align: center">
-        (Version du serveur, minecraft.jar vierge)<br />
-</h3>
-<br />
-
-<!--
-<h1 style="text-align: center; ; font-size:20px; ">
-Le serveur SasCraft vous ouvre ses portes !
-<br />
-<a href='http://sascraft.mtxserv.fr/viewtopic.php?f=14&t=255'><font color=#C00000>Voir l'annonce</font></a><br />
-</h1>
-
-<br />
-
-<div style="text-align:center;">
-				<div class="quotetitle">
-					<input type="button" onclick="
-					if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') {
-					this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = '';
-					this.innerText = '';
-					this.value = 'Masquer la progression'; 
-					} else {
-					this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none';
-					this.innerText = ''; this.value = 'Progression du serveur'; }" value="Progression du serveur" class="bouton">
-				</div>
-				<div style="text-aling:center">
-					<div style="display: none;"><br />
-<h1>
-Heiwa : 100%
-<div class="meter green animate">
-	<span style="width: 100%;"><span></span></span>
-</div>
-
-Luna : 0%
-<div class="meter red animate">
-	<span style="width: 1%;"><span></span></span>
-</div>
-
-Solar : 0%
-<div class="meter red animate">
-	<span style="width: 1%;"><span></span></span>
-</div>
-
-Projet secret : 90%
-<div class="meter green animate">
-	<span style="width: 90%;"><span></span></span>
-</div>
-</h1>
-					</div><br />
-				</div>
-</div>
 
 
-
-<div style="text-align:center;">
-				<div class="quotetitle">
-					<input type="button" onclick="
-					if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') {
-					this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = '';
-					this.innerText = '';
-					this.value = 'Masquer le Teaser'; 
-					} else {
-					this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none';
-					this.innerText = ''; this.value = 'Afficher le Teaser'; }" value="Afficher le Teaser" class="bouton">
-				</div>
-				<div style="text-aling:center">
-					<div style="display: none;"><br />
-<object width="640" height="360"><param name="movie" value="http://www.youtube.com/v/pSov57Kkxt0?version=3&amp;hl=fr_FR&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/pSov57Kkxt0?version=3&amp;hl=fr_FR&amp;rel=0" type="application/x-shockwave-flash" width="640" height="360" allowscriptaccess="always" allowfullscreen="true"></embed></object>
-<br />
-<a href='http://www.youtube.com/watch?v=F0LyHWymWHc'><font color=#C00000><h1>Voir les Goodies (ratés du tournage) !</h1></font></a><br />
-					</div><br />
-				</div>
-			</div>
---!>
-        </div>
 		
 <!-- INCLUDE forumlist_body.html -->	
+	
+	
 	
 <!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
 <center>
@@ -169,7 +81,7 @@ Projet secret : 90%
 	<!-- IF S_DISPLAY_ONLINE_LIST -->
 	<div id="qui_est_en_ligne">
            <br />
-	   <p>{TOTAL_USERS_ONLINE}<br />{RECORD_USERS}.<br /> <br /><!-- INCLUDE minequery.html --><br />{LOGGED_IN_USER_LIST}.</p>
+	   <p>{TOTAL_USERS_ONLINE}<br />{RECORD_USERS}.<br /> <br /><br />{LOGGED_IN_USER_LIST}.</p>
 	   
 	</div>
 	<!-- ENDIF -->
@@ -183,98 +95,5 @@ Projet secret : 90%
 	<br />
 </div>
 
-<div id="module">
 
-	<div id="mumble">
-
-<script type="text/javascript">
-<!-- Viewer fourni par LOCATION-TS3.COM  -->
-
-//Le port de votre serveur 
-var port = '37119';
-
-//Le port query de votre serveur (NE PAS MODIFIER) 
-var query = '1';
-
-//Autoriser le visiteur a se connecter au serveur (1 = Oui ; 0 = Non) 
-var allowed_connection= '1';
-
-//Mot de passe du serveur (Laisser vide si aucun) 
-var password_server= 'minewow';
-
-//La couleur de fond du viewer (en Hexadécimal) Pour chercher un code couleur : http://www.code-couleur.net/selection-couleur.php
-var bgcolor = '';
-
-//La largeur du viewer (en pixel) Laissez vide pour une largeur automatique
-var largeur='300';
-
-//La hauteur du viewer (en pixel) Laissez vide pour une hauteur automatique
-var hauteur='300';
-
-//Afficher un bordure colorée autour du viewer (en Hexadécimal) Laissez vide pour ne pas affiche de bordure
-var bordercolor='';
-
-//Couleur du texte
-var color='464e53';
-
-//Afficher les barres de scrolling (yes = Oui ; no = Non)
-var scrolling='yes';
-
-</script>
-<script type="text/javascript" charset="UTF-8" src="http://www.location-ts3.com/ts3viewer.js"></script>
-
-
-
-</div>
-
-
-
-	<div id="twitter">
-		<script src="http://widgets.twimg.com/j/2/widget.js"></script>
-		<script>
-		new TWTR.Widget({
-		  version: 2,
-		  type: 'profile',
-		  rpp: 3,
-		  interval: 30000,
-		  width: 300,
-		  height: 207,
-		  theme: {
-		    shell: {
-		      background: '#beb175',
-		      color: '#ffffff'
-		    },
-		    tweets: {
-		      background: '#dbd4b6',
-		      color: '#000000',
-		      links: '#333333'
-		    }
-		  },
-		  features: {
-		    scrollbar: true,
-		    loop: false,
-		    live: true,
-		    hashtags: true,
-		    timestamp: true,
-		    avatars: false,
-		    behavior: 'all'
-		  }
-		}).render().setUser('SasCraftFR').start();
-		</script>
-	</div>
-	<div id="mtx">
-	<a href="http://www.mtxserv.fr/?affiliate=2SDbaMLiH2wCbeTYpkCE" title="serveur de jeux"><img src="http://sascraft.mtxserv.fr/Autre/upload/MTXBan.png" alt="serveur de jeux" width="468" height="60" /></a>
-	</div>
-
-	<div id="part1"><a href="http://sascraft.mtxserv.fr/viewforum.php?f=42"><img alt="Partenaire" src='http://sascraft.mtxserv.fr/styles/CS_2.1/theme/images/lien.png'></img></a>
-	</div>
-
-	<div id="part2"><a href="http://sascraft.mtxserv.fr/viewforum.php?f=42"><img alt="Partenaire" src='http://sascraft.mtxserv.fr/styles/CS_2.1/theme/images/lien.png'></img></a>
-	</div>
-
-	<div id="part3"><a href="http://sascraft.mtxserv.fr/viewforum.php?f=42"><img alt="Partenaire" src='http://sascraft.mtxserv.fr/styles/CS_2.1/theme/images/lien.png'></img></a>
-	</div>
-
-
-</div>
 <!-- INCLUDE overall_footer.html -->
