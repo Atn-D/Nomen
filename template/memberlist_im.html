@@ -1,0 +1,83 @@
+<!-- INCLUDE simple_header.html -->
+
+<!-- MSNM info from http://www.cdolive.net/ - doesn't seem to work with MSN Messenger -->
+<div class="panel_2">
+<h2>{L_SEND_IM}</h2>
+
+<form method="post" action="{S_IM_ACTION}">
+
+
+
+	<p>{L_SEND_IM_EXPLAIN}</p>
+
+	<fieldset>
+	<p>
+		<label>{L_IM_RECIPIENT}:</label>
+		<strong>{USERNAME}</strong><!-- IF S_SEND_ICQ or S_SEND_AIM or S_SEND_MSNM or S_NO_SEND_JABBER --> [ {IM_CONTACT} ]<!-- ENDIF --><!-- IF PRESENCE_IMG --> {PRESENCE_IMG}<!-- ENDIF -->
+	</p>
+
+	<!-- IF S_SEND_ICQ -->
+		<p>
+			<label for="from">{L_IM_NAME}:</label>
+			<input class="inputbox autowidth" type="text" name="from" id="from" size="20" />
+		</p>
+		<p>
+			<label for="body">{L_IM_MESSAGE}:</label>
+			<textarea class="inputbox autowidth" name="body" id="body" rows="5" cols="45"></textarea>
+		</p>
+		<p>
+			
+			<input class="button1" name="submit" type="submit" value="{L_IM_SEND}" />
+		</p>
+		<input type="hidden" name="fromemail" value="{EMAIL}" />
+		<input type="hidden" name="subject" value="{SITENAME}" />
+		<input type="hidden" name="to" value="{IM_CONTACT}" />
+	<!-- ENDIF -->
+
+	<!-- IF S_SEND_AIM -->
+		
+			
+			<a href="{U_AIM_CONTACT}">{L_IM_ADD_CONTACT}</a> |
+			<a href="{U_AIM_MESSAGE}">{L_IM_SEND_MESSAGE}</a> <br />
+			<a href="http://www.aim.com/download.adp">{L_IM_DOWNLOAD_APP}</a> | <a href="http://aimexpress.oscar.aol.com/aimexpress/launch.adp?Brand=AIM">{L_IM_AIM_EXPRESS}</a>
+		
+	<!-- ENDIF -->
+
+	<!-- IF S_SEND_MSNM -->
+		
+			<h2>Cette fonctionnalit&eacute; n'est plus disponible.</h2>
+	<!-- ENDIF -->
+
+	<!-- IF S_SEND_JABBER -->
+		<p>
+			<label for="message">{L_IM_MESSAGE}:</label>
+			<textarea class="inputbox autowidth" name="message" id="message" rows="5" cols="45"></textarea>
+		</p>
+		<p>
+			
+			<input class="button1" name="submit" type="submit" value="{L_IM_SEND}" />
+		</p>
+	<!-- ENDIF -->
+
+	<!-- IF S_NO_SEND_JABBER -->
+		<p>
+			
+			{L_IM_NO_JABBER}
+		</p>
+	<!-- ENDIF -->
+
+	<!-- IF S_SENT_JABBER -->
+		<p>
+			&nbsp;
+			{L_IM_SENT_JABBER}
+		</p>
+	<!-- ENDIF -->
+	{S_FORM_TOKEN}
+	</fieldset>
+
+
+</form>
+</div>
+
+
+<!-- INCLUDE simple_footer.html -->

@@ -1,0 +1,26 @@
+<h3>{L_POST_REVIEW}</h3>
+
+<p>{L_POST_REVIEW_EXPLAIN}</p>
+DEBUG
+<!-- BEGIN post_review_row -->
+	<!-- IF post_review_row.S_IGNORE_POST -->
+			{post_review_row.L_IGNORE_POST}
+	<!-- ENDIF -->
+
+	<div id="ppr{post_review_row.POST_ID}">
+		<h3><a href="#ppr{post_review_row.POST_ID}">{post_review_row.POST_SUBJECT}</a></h3>
+		<p>
+			<!-- IF S_IS_BOT -->{post_review_row.MINI_POST_IMG}<!-- ELSE --><a href="{post_review_row.U_MINI_POST}">{post_review_row.MINI_POST_IMG}</a><!-- ENDIF --> {L_POST_BY_AUTHOR}<strong>  {post_review_row.POST_AUTHOR_FULL}</strong> &raquo; {post_review_row.POST_DATE}</p>
+		<div class="content">{post_review_row.MESSAGE}</div>
+
+		<!-- IF post_review_row.S_HAS_ATTACHMENTS -->
+					
+				<p>{L_ATTACHMENTS}</p>
+				<!-- BEGIN attachment -->
+					<p>{post_review_row.attachment.DISPLAY_ATTACHMENT}</p>
+				<!-- END attachment -->
+		<!-- ENDIF -->
+	</div>
+<!-- END post_review_row -->
+
+<hr />

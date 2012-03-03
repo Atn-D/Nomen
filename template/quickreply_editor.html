@@ -1,0 +1,25 @@
+	<div id="reponse_rapide">
+		<form method="post" action="{U_QR_ACTION}">
+		
+			<h2>{L_QUICKREPLY}</h2>
+			
+			<fieldset>
+			
+
+					<p>
+						<label for="subject">{L_SUBJECT}:</label>
+						<input type="text" name="subject" id="subject-ns" size="45" maxlength="64" tabindex="2" value="{SUBJECT}" class="inputbox autowidth" />
+					</p>
+
+				<div id="message_box">
+					<textarea name="message" rows="7" cols="76" tabindex="3" class="inputbox"></textarea>
+				</div>
+			</fieldset>
+			<fieldset>
+				{S_FORM_TOKEN}
+				{QR_HIDDEN_FIELDS}
+				<input type="submit" accesskey="s" tabindex="6" name="post" value="{L_SUBMIT}" class="bouton" />&nbsp;
+				<input type="submit" accesskey="f" tabindex="7" name="full_editor" value="{L_FULL_EDITOR}" class="bouton" />&nbsp;
+			</fieldset>
+		</form>
+	</div>

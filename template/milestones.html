@@ -1,0 +1,49 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF S_KEYWORD_VERSION -->
+<!--
+/**
+*
+* @package - "Milestone Congratulations"
+* @version $Id: milestones.html 3 2008-09-21 MartectX $
+* @copyright (C)2008, MartectX ( http://mods.martectx.de/ )
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License 
+*
+*/
+-->
+<!-- ENDIF -->
+<center>
+<h2>{L_MILESTONE_HISTORY}</h2>
+
+
+<table style="vertical-align:top;">
+    <tr>
+<!-- BEGIN milestone -->
+<!-- IF milestone.NEWTYPE -->
+	<!-- IF not milestone.S_FIRST_ROW -->
+	</tbody>
+	</table>
+	</td>
+	<!-- ENDIF -->
+	<td width="30%">
+	<table class="tableau_forum">
+	<thead id="tableau_forum_header">
+		<tr>
+			<td align="center"><h4>&nbsp;{milestone.TYPE}&nbsp;</h4></td>
+			<td align="center"><h4>&nbsp;{L_USERS}&nbsp;</h4></td>
+		</tr>
+	</thead>
+	<tbody>
+<!-- ENDIF -->
+		<tr>
+			<td align="center">{milestone.NUMBER}</td>
+			<td align="center">{milestone.USER}</td>
+		</tr>
+<!-- END milestone -->
+</table>
+</tr>
+</table>
+</center>
+<br />
+<!-- INCLUDE jumpbox.html -->
+<!-- INCLUDE overall_footer.html -->

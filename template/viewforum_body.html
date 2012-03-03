@@ -1,0 +1,175 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF S_FORUM_RULES -->
+	<div class="regle_du_forum">
+	
+		<!-- IF U_FORUM_RULES -->
+			<a href="{U_FORUM_RULES}">{L_FORUM_RULES}</a>
+		<!-- ELSE -->
+			<strong>{L_FORUM_RULES} :</strong>
+			<br />
+			{FORUM_RULES}
+		<!-- ENDIF -->
+
+	</div>
+<br />
+<!-- ENDIF -->
+
+<div class="lien_arborescence">
+	<a href="{U_INDEX}" class="gen">{L_INDEX}</a>
+	<!-- BEGIN navlinks -->
+		| <a href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a>
+	<!-- END navlinks -->
+</div>
+<br />
+
+<!-- IF S_HAS_SUBFORUM -->
+
+	<!-- INCLUDE forumlist_body.html -->
+
+<!-- ENDIF -->
+
+<br />
+<!-- IF not S_IS_BOT and S_DISPLAY_POST_INFO -->
+		<!-- IF S_IS_LOCKED -->
+			<a href="{U_POST_NEW_TOPIC}" rel="nofollow" class="bouton">Verrouillé</a>
+		<!-- ELSE -->
+			<a href="{U_POST_NEW_TOPIC}" rel="nofollow" class="bouton">Nouveau</a>
+		<!-- ENDIF -->
+<!-- ENDIF -->
+<br />
+
+
+<!-- IF S_NO_READ_ACCESS -->
+<div id="confirm">		<h3>Informations</h3>
+		{L_NO_READ_ACCESS}<br />
+</div>
+<!-- ELSE -->
+	
+	<table class="tableau_forum" width="100%">
+		<!-- BEGIN topicrow -->	
+			<!-- IF topicrow.S_FIRST_ROW or not topicrow.S_TOPIC_TYPE_SWITCH -->
+				<tr id="tableau_forum_header">
+					<th colspan="2" align="center">
+						<!-- IF S_DISPLAY_ACTIVE -->{L_ACTIVE_TOPICS}
+						<!-- ELSEIF topicrow.S_TOPIC_TYPE_SWITCH and topicrow.S_TOPIC_TYPE gt 1 -->{L_ANNOUNCEMENTS}
+						<!-- ELSE -->{L_TOPICS}
+						<!-- ENDIF -->
+					</th>
+					<th align="center" nowrap="nowrap" width="100px">
+						{L_REPLIES}
+					</th>
+					<th align="center" nowrap="nowrap" width="100px">
+						Auteur
+					</th>
+					<th align="center" nowrap="nowrap" width="100px">
+						{L_VIEWS}
+					</th>
+					<th align="center" nowrap="nowrap" width="200px">
+						{L_LAST_POST}
+					</th>
+				</tr>
+			<!-- ENDIF -->
+				<tr <!-- IF topicrow.S_TOPIC_DELETED -->class="soft_deleted"<!-- ENDIF -->>
+					<td align="center" valign="middle" width="40px">
+                            {topicrow.TOPIC_FOLDER_IMG}
+					</td>
+					<td class="tableau_forum_topic" align="left">
+						<h2>
+						    <!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED -->
+								<a href="{topicrow.U_MCP_QUEUE}">{topicrow.UNAPPROVED_IMG}</a> 
+							<!-- ENDIF -->
+							<!-- IF topicrow.S_TOPIC_REPORTED -->
+								<a href="{topicrow.U_MCP_REPORT}">{REPORTED_IMG}</a>
+							<!-- ENDIF -->
+							<!-- IF topicrow.ATTACH_ICON_IMG -->
+								{topicrow.ATTACH_ICON_IMG} 
+							<!-- ENDIF -->
+							<!-- IF topicrow.S_UNREAD_TOPIC -->
+								<a href="{topicrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> 
+							<!-- ENDIF -->
+							<!-- IF topicrow.S_POST_ANNOUNCE -->Annonce:
+								<!-- ELSEIF topicrow.S_POST_STICKY -->Post-it:
+								<!-- ENDIF -->
+								<a href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a>
+						</h2>
+							<!-- IF topicrow.PAGINATION -->
+								{topicrow.PAGINATION}
+							<!-- ENDIF -->
+					</td>
+					<td align="center" valign="middle">
+						<span class="postdetails">{topicrow.REPLIES}</span>
+					</td>
+					<td align="center" valign="middle">
+						<span class="name"><strong>{topicrow.TOPIC_AUTHOR_FULL}</strong></span>
+					</td>
+					<td align="center" valign="middle">
+						<span class="postdetails">{topicrow.VIEWS}</span>
+					</td>
+					<td  align="center" valign="middle" nowrap="nowrap">
+						<span class="postdetails">{topicrow.LAST_POST_TIME}<br />
+							<strong>{topicrow.LAST_POST_AUTHOR_FULL}</strong>
+ 							<!-- IF not S_IS_BOT -->
+ 								<a href="{topicrow.U_LAST_POST}">{LAST_POST_IMG}</a> 
+ 							<!-- ENDIF -->
+                            </span>
+					</td>
+				</tr>
+<!-- BEGINELSE -->
+				<tr>
+					<td colspan="7" align="center">
+						{L_NO_TOPICS}
+					</td>
+				</tr>
+<!-- END topicrow -->
+<!-- IF not S_IS_BOT and U_MARK_TOPICS -->
+<tr id="tableau_forum_footer">
+<td colspan="7" style="border: 0px none; padding-right: 20px;">
+   <span style="float:left;">
+    <!-- IF S_DISPLAY_POST_INFO or PAGINATION or TOTAL_POSTS or TOTAL_TOPICS -->
+    <!-- IF PAGINATION or TOTAL_POSTS or TOTAL_TOPICS -->
+    		<!-- IF TOTAL_TOPICS -->{TOTAL_TOPICS} ~<!-- ENDIF -->
+    		<!-- IF PAGE_NUMBER -->
+    			<!-- IF PAGINATION --> 
+    			<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> 
+    			~ {PAGINATION}
+    			<!-- ELSE --> 
+    			{PAGE_NUMBER}
+    		<!-- ENDIF -->
+    <!-- ENDIF -->
+    <!-- ENDIF -->
+    </span>
+<a style="float: right;" href="{U_MARK_TOPICS}" accesskey="m">{L_MARK_TOPICS_READ}</a>
+</td>
+</tr>
+<!-- ENDIF -->
+	</table>
+<!-- ENDIF -->
+<br />
+<div class="lien_arborescence">
+<a href="{U_INDEX}" class="gen">{L_INDEX}</a>
+<!-- BEGIN navlinks --> / <a class="gen" href="{navlinks.U_VIEW_FORUM}">{navlinks.FORUM_NAME}</a><!-- END navlinks -->
+
+</div>
+<!-- INCLUDE jumpbox.html -->
+
+
+<br />
+<div class="info_bas_page" style="clear:both;">
+	{LOGGED_IN_USER_LIST} <br />
+	<!-- IF S_VIEWTOPIC -->
+		<b><a href="{U_VIEW_FORUM}" accesskey="r">{L_RETURN_TO} {FORUM_NAME}</a></b>
+	<!-- ELSEIF S_VIEWFORUM -->
+		<b><a href="{U_INDEX}" accesskey="r">{L_RETURN_TO} {L_INDEX}</a></b>
+	<!-- ELSEIF SEARCH_TOPIC -->
+		<b><a href="{U_SEARCH_TOPIC}" accesskey="r">{L_RETURN_TO}: {SEARCH_TOPIC}</a></b>
+	<!-- ELSEIF S_SEARCH_ACTION -->
+		<b><a href="{U_SEARCH}" title="{L_SEARCH_ADV}" accesskey="r">{L_RETURN_TO_SEARCH_ADV}</a></b>
+	<!-- ENDIF -->
+	</div>
+<!-- ENDIF -->
+
+
+
+
+<!-- INCLUDE overall_footer.html -->

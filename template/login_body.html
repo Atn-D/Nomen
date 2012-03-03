@@ -1,0 +1,72 @@
+<!-- INCLUDE overall_header.html -->
+	<div class="connexion">
+		<h2><!-- IF LOGIN_EXPLAIN -->{LOGIN_EXPLAIN}<!-- ELSE -->{L_LOGIN}<!-- ENDIF --></h2>
+		<br />
+		<div id="formulaire_connexion">
+		
+		<form action="{S_LOGIN_ACTION}" method="post" id="login">
+			<fieldset>
+				<!-- IF LOGIN_ERROR --><div class="error">{LOGIN_ERROR}</div><!-- ENDIF -->
+				
+					<label for="{USERNAME_CREDENTIAL}">{L_USERNAME} : </label>
+					<input type="text" tabindex="1" name="{USERNAME_CREDENTIAL}" id="{USERNAME_CREDENTIAL}" size="25" value="{USERNAME}" class="inputbox autowidth" />
+					<br />
+					
+					<label for="{PASSWORD_CREDENTIAL}">{L_PASSWORD} : </label>
+					<input type="password" tabindex="2" id="{PASSWORD_CREDENTIAL}" name="{PASSWORD_CREDENTIAL}" size="25" class="inputbox autowidth" />
+					<br />
+					
+				<!-- IF S_DISPLAY_FULL_LOGIN and (U_SEND_PASSWORD or U_RESEND_ACTIVATION) -->
+					<!-- IF U_SEND_PASSWORD -->
+					<br />
+						<a href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a>
+					<br />
+					<!-- ENDIF -->
+					<!-- IF U_RESEND_ACTIVATION -->
+						<a href="{U_RESEND_ACTIVATION}">{L_RESEND_ACTIVATION}</a>
+						<br />
+					<!-- ENDIF -->
+			<!-- ENDIF -->
+			<!-- IF CAPTCHA_TEMPLATE and S_CONFIRM_CODE -->
+				<!-- DEFINE $CAPTCHA_TAB_INDEX = 3 -->
+				<!-- INCLUDE {CAPTCHA_TEMPLATE} -->
+			<!-- ENDIF -->
+			
+			<!-- IF S_DISPLAY_FULL_LOGIN -->
+				<!-- IF S_AUTOLOGIN_ENABLED -->
+					<label for="autologin">
+						<input type="checkbox" name="autologin" id="autologin" tabindex="4" checked="checked" /> {L_LOG_ME_IN}
+					</label>
+					<br />
+				<!-- ENDIF -->
+				<label for="viewonline">
+					<input type="checkbox" name="viewonline" id="viewonline" tabindex="5" /> {L_HIDE_ME}
+				</label>
+				<br />
+
+			<!-- ENDIF -->
+
+			
+			{S_HIDDEN_FIELDS}<input type="submit" name="login" tabindex="6" value="{L_LOGIN}" class="bouton" />
+			<br />
+			{S_LOGIN_REDIRECT}
+		</fieldset>
+</form>
+
+<!-- IF not S_ADMIN_AUTH and S_REGISTER_ENABLED -->
+		
+		<br />
+		<hr />
+		
+		<h2>{L_REGISTER}</h2>
+		<p>{L_LOGIN_INFO}</p>
+		<p><strong><a href="{U_TERMS_USE}">{L_TERMS_USE}</a> | <a href="{U_PRIVACY}">{L_PRIVACY}</a> | <a href="{U_REGISTER}" class="bouton">{L_REGISTER}</a></strong></p>
+<!-- ENDIF -->
+
+		<br />
+	</div>	
+</div>
+	
+	
+
+<!-- INCLUDE overall_footer.html -->

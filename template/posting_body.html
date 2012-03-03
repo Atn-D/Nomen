@@ -1,0 +1,41 @@
+<!-- IF S_PRIVMSGS -->
+	<!-- INCLUDE ucp_header.html -->
+<!-- ELSE -->
+	<!-- INCLUDE overall_header.html -->
+<!-- ENDIF -->
+
+
+<script type="text/javascript"><!--
+    /**
+     * Switch display of an element
+     * @access public
+     * @return void
+     **/
+    function SwitchDisplay(doc){
+    	if (doc.style.display == 'none') {
+    		doc.style.display = 'block';
+    	}
+    	else
+    	{
+    		doc.style.display = 'none';
+    	}
+    }
+
+    /**
+     * Switch display of the next node
+     * @access public
+     * @return void
+     **/
+    function SwitchNextNode(doc){
+    	SwitchDisplay(doc.nextSibling.nextSibling);
+    }
+    //-->
+</script>
+
+<!-- IF S_PRIVMSGS -->
+	<!-- INCLUDE posting_pm_layout.html -->
+	<!-- INCLUDE ucp_footer.html -->
+<!-- ELSE -->
+	<!-- INCLUDE posting_layout.html -->
+	<!-- INCLUDE overall_footer.html -->
+<!-- ENDIF -->

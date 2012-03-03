@@ -1,0 +1,107 @@
+<!-- INCLUDE ucp_header.html -->
+
+<h2>Caracters Manager</h2>
+
+<div class="panel">
+
+<p>
+<!-- IF CARACTER_EDIT -->
+<form method="POST">
+	<fieldset>
+
+	<dl>
+		<dt><label for="name">Name</label></dt>
+		<dd>
+			<input type="input" name="name" id="name" <!-- IF ED_NAME -->value="{ED_NAME}" disabled<!-- ENDIF --> />
+			<!-- IF ED_NAME --><input type="hidden" name="name" value="{ED_NAME}" /><!-- ENDIF -->
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="class">Class</label></dt>
+		<dd>
+			<select id="class" name="class" size="1"<!-- IF ED_CLASS --> disabled<!-- ENDIF -->>
+			<option<!-- IF ED_CLASS == sadida --> selected<!-- ENDIF -->>sadida</option>
+			<option<!-- IF ED_CLASS == cra --> selected<!-- ENDIF -->>cra</option>
+			<option<!-- IF ED_CLASS == enutrof --> selected<!-- ENDIF -->>enutrof</option>
+			<option<!-- IF ED_CLASS == iop --> selected<!-- ENDIF -->>iop</option>
+			<option<!-- IF ED_CLASS == eniripsa --> selected<!-- ENDIF -->>eniripsa</option>
+			<option<!-- IF ED_CLASS == osamodas --> selected<!-- ENDIF -->>osamodas</option>
+			<option<!-- IF ED_CLASS == sram --> selected<!-- ENDIF -->>sram</option>
+			<option<!-- IF ED_CLASS == pandawa --> selected<!-- ENDIF -->>pandawa</option>
+			<option<!-- IF ED_CLASS == feca --> selected<!-- ENDIF -->>feca</option>
+			<option<!-- IF ED_CLASS == ecaflip --> selected<!-- ENDIF -->>ecaflip</option>
+			<option<!-- IF ED_CLASS == xelor --> selected<!-- ENDIF -->>xelor</option>
+			<option<!-- IF ED_CLASS == sacrieur --> selected<!-- ENDIF -->>sacrieur</option>
+			</select>
+
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="level">Level</label></dt>
+		<dd>
+			<input type="text" name="level" id="level"<!-- IF ED_LEVEL --> value="{ED_LEVEL}"<!-- ENDIF --> />
+		</dd>
+	</dl>
+
+		<dl>
+			<dt><label for="guild">Guild</label><br /></dt>
+			<dd>
+				<input type="text" name="guild" id="guild"<!-- IF ED_GUILD -->value="{ED_GUILD}"<!-- ENDIF --> />
+			</dd>
+		</dl>
+
+	<dl>
+		<dt><label for="sex0">Sex</label></dt>
+		<dd>
+			<label for="sex1"><input type="radio" name="sex" id="sex1" value="female"<!-- IF ED_SEX != male --> checked<!-- ENDIF --><!-- IF ED_SEX --> disabled<!-- ENDIF --> /> Female</label>
+			<label for="sex0"><input type="radio" name="sex" id="sex0" value="male"<!-- IF ED_SEX == male --> checked<!-- ENDIF --><!-- IF ED_SEX --> disabled<!-- ENDIF --> /> Male</label>
+		</dd>
+	</dl>
+	</fieldset>
+	<br />
+	<center><input type="submit" value="Send" /></center>
+</form>
+<!-- ELSE -->
+	<p>In this panel you can manage Dofus caracters. Click <a href="{L_NEW_CHARACTER}">here</a> to create e new caracter.</p>
+	<div class="buttons">
+			<div class="post-icon" title="New Character"><a bitly="BITLY_PROCESSED" href="{L_NEW_CHARACTER}"><span></span>Create new character</a></div>
+		</div>
+
+<table class="table1" cellspacing="1">
+	<thead>
+	<tr>
+		<th class="name">Name</th>
+		<th class="posts">Level</th>
+		<th class="joined">Guild</th>
+		<th width="30">Edit</th>
+		<th width="30">Delete</th>
+	</tr>
+	</thead>
+	<tbody>
+<!-- BEGIN caracters -->
+	<tr class="<!-- IF caracters.S_ROW_COUNT is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+		<td>{caracters.C_NAME}</td>
+		<td class="posts">{caracters.C_LEVEL}</td>
+		<td class="info">{caracters.C_GUILD}</td>
+		<td>
+		<ul class="profile-icons">
+					<li class="edit-icon"><a bitly="BITLY_PROCESSED" href="{caracters.L_EDIT}" title="Edit character"><span>Edit</span></a></li>
+		</ul>
+		</td>
+		<td>
+		<ul class="profile-icons">
+					<li class="delete-icon"><a bitly="BITLY_PROCESSED" href="{caracters.L_DELETE}" title="Supprimer le message"><span>Delete</span></a></li>
+		</ul>
+		</td>
+	</tr>
+<!-- END caracters -->
+	</tbody>
+	</table>
+	<div class="buttons">
+			<div class="post-icon" title="New Character"><a bitly="BITLY_PROCESSED" href="{L_NEW_CHARACTER}"><span></span>Create new character</a></div>
+		</div>
+<!-- ENDIF -->
+</p>
+</div>
+
+<!-- INCLUDE ucp_footer.html -->

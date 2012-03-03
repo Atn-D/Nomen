@@ -1,0 +1,71 @@
+<!-- INCLUDE overall_header.html -->
+    <div class="panel_bg3">
+<center>
+    <span id="titre_ucp">{L_MCP}</span>
+
+    <div id="tabs">
+        <!-- BEGIN l_block1 -->
+            <!-- IF l_block1.S_SELECTED --><em><!-- ENDIF -->
+                <a href="{l_block1.U_TITLE}">{l_block1.L_TITLE}</a>
+            <!-- IF l_block1.S_SELECTED --></em><!-- ENDIF -->
+            <!-- IF not l_block1.S_LAST_ROW -->
+             |
+            <!-- ENDIF -->
+        <!-- END l_block1 -->
+    </div>
+</center>
+
+
+
+        <div style="width: 100%;">
+
+            <div id="cp-menu">
+                <div id="navigation">                
+                    <!-- BEGIN l_block1 -->
+                        <!-- IF l_block1.S_SELECTED -->
+                            <!-- BEGIN l_block2 -->
+                                <!-- IF l_block1.l_block2.S_SELECTED -->
+                                    <em><a href="{l_block1.l_block2.U_TITLE}"> {l_block1.l_block2.L_TITLE}
+                                        <!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})
+                                        <!-- ENDIF -->
+                                    </a>
+                                    </em>
+                                <!-- ELSE -->
+                                    <a href="{l_block1.l_block2.U_TITLE}"> {l_block1.l_block2.L_TITLE}
+                                    <!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})
+                                    <!-- ENDIF -->
+                                    </a>
+                                <!-- ENDIF -->
+                                <!-- IF not l_block1.l_block2.S_LAST_ROW -->
+                                 |
+                                <!-- ENDIF -->
+                            <!-- END l_block2 -->
+                        <!-- ENDIF -->
+                     <!-- END l_block1 -->
+                </div>
+            </div>
+
+            <div id="cp-main" class="mcp-main">
+                <!-- IF MESSAGE -->
+                <div class="content">
+                    <h2>{L_MESSAGE}</h2>
+                    <p class="error">{MESSAGE}</p>
+                    <p><!-- BEGIN return_links -->{return_links.MESSAGE_LINK}<br /><br /><!-- END return_links --></p>
+                </div>
+                <!-- ENDIF -->
+
+                <!-- IF CONFIRM_MESSAGE -->
+                <form id="confirm" method="post" action="{S_CONFIRM_ACTION}"{S_FORM_ENCTYPE}>
+
+                    <div class="content">
+                        <h2>{L_PLEASE_CONFIRM}</h2>
+                        <p>{CONFIRM_MESSAGE}</p>
+
+                        <fieldset class="submit-buttons">
+                            {S_HIDDEN_FIELDS}<input class="button1" type="submit" name="submit" value="{L_YES}" />&nbsp; 
+                            <input class="button2" type="cancel" value="{L_NO}" />
+                        </fieldset>
+                    </div>
+
+                </form>
+                <!-- ENDIF -->

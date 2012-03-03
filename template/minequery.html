@@ -1,0 +1,16 @@
+<!-- PHP -->
+include('class/minequery.class.php');
+
+		
+	
+	$reponse = Minequery::query('188.165.224.34','25566');
+	
+			
+		if(!$reponse){
+			echo("Le serveur est actuellement offline");
+		}
+		else{
+			echo("Joueurs connectés au serveur : <em>". implode(', ', $reponse['playerList']) . "</em>");
+			
+	}
+<!-- ENDPHP -->

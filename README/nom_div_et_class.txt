@@ -1,0 +1,131 @@
+id :
+
+
+corps : div principale, contient tout sauf le BG principal (overall_header.html, simple_header.html)
+
+header : div contenant la bannière, le nom du forum + description, la barre de bouton (login, logout, register, etc), RCDofus et Anka'Dio (overall_header.html)
+
+Popinfo : utilisée pour indiquer un MP non lu, affiche un popup (overall_header.html)
+
+barre_bouton : div contenant la barre de bouton principale, login, logout, register, etc (overall_header.html)
+
+barre_bouton_xxx : id contenant les boutons de la barre de menu en backgorund-image (overall_header.html, bouton.css)
+
+information : pour div affichant des infos (info de forum, forum ddésactivé par exemple) (overall_header.html)
+
+RCDofus_et_ankadio : zone d'affichage du dernier ticket sur le blog, 'écoutez Anka'Dio' et du RCDofus (overall_header.html)
+
+dernier_ticket : affichage du dernier ticket sur le blog (index_body.html)
+
+page-body : contenant toutes les pages, ouverture dans overall_header.html et fermeture dans overall_footer.html (overall_header.html, simple_header.html)
+
+informations_date_messages_dernier_billet : contient date de dernière connexion/date actuelle/nombre de nouveaux messages (index_body.html)
+
+connexion_bas_page :  zone de connexion rapide en bas du forum (index_body.html)
+
+information_bas_page : zone d'affiche des infos de bas de page (qui est en ligne, derniers inscrits et activités des membres) (index_body.html)
+ 
+qui_est_en_ligne : zone affichant les infos sur les personnes en lignes et nombres inscrits, appartient #information_bas_page (index_body.html)
+
+qui_est_en_ligne_image : à gauche de la qui_est_en_ligne, affiche l'image "qui est en ligne ?", appartient #information_bas_page (index_body.html)
+
+info_anniversaire :  zone affichage anniversaire, appartient #information_bas_page (index_body.html)
+
+utilisateur_24h : zone affichage utilisateur actif dernières 24h, appartient #information_bas_page (index_body.html)
+
+regle_du_forum : div contenant les règles du forum sélectionné (viewforum_body.html)
+
+format_bouttons: div contenant les boutons pour le BBcode (posting_buttons.html)
+
+colour_palette : palette de couleurs (posting_buttons.html)
+
+posting_zone : zone où est affiché toute la zone de post (boutons, zone de texte, etc) (posting_layout.html)
+
+postingbox : contient la zone avec zone de texte + bouton (posting_layout.html)
+
+smiley_box ; contient les smiley : (posting_editor.html)
+
+preview : affichage la prévisualisation du message/post qui va être envoyé (posting_preview.html)
+
+reponse_rapide : form pour réponse rapide (quickreply_editor.html)
+
+message_box : zone où taper le texte pour réponse rapide (quickreply_editor.hmtl)
+
+memberlist_zone[1/2/3] : pour memberliste, les deux divs dans lesquels sont mis les infos (memberlist_view.html)
+
+banckgroud_connexion : div pour le backgroudn de la page de connexion (login_body.html)
+
+
+
+
+class :
+
+bouton : boutons de confirmation (présent pour l'instant que sur le popup de MP) (overall_header.html, memberliste_body.html, memberlist_view.html, ucp_agreement.html, ucp_avatar_options.html et autres pages)
+
+maintitle : contenant  nom forum + description (overall_header.html)
+
+mainmenu : class des icônes de la barre de bouton (overall_header.html)
+
+rules : class pour affichage des règles ? (overall_header.html)
+
+copyright : pour copyright du footer, (overall_footer.html)
+
+separateur : séparateur entre les div (index_body.html, viewtopic_body.html, memberliste_view.html)
+
+faq_section : dans faq_body.html, div contenant les toutes les réponses sur un même sujet (exemple "Problèmes d’identification et d’inscription") (faq_body.html)
+
+bouton : class pour les boutons en tout genre, que dire de plus (jumbox.html, viewtopic_body.html)
+
+forum_rules : règles d'un forum (viewforum_body.html)
+
+lien_arborescence : liens affiché en haut d'un forum affichant l'arborescence (viewforum_body.html)
+
+topictitle : nom du topic (forumview_body.html, forumlist_body.html)
+
+info_bas_page : affiche les info en bas de page (viewforum_body.html)
+
+tableau_forum: tableau contenant les forum/catégorie/topics (viewforum_body.html, forumlist_body.html, posting_topic_review.html)
+
+connexion : zone pour la connexion (login_body.html, login_forum.html)
+
+sondage : zone affichant les sondage dans les topics (viewtopic_body.html)
+
+resulat_sondage{1-5} : barres de résultats des sondage (1 = <20%, 2 < 40%, 3<60%, 4<80% et 5≤100%) (veiwtopic_body.html)
+
+tableau_affichage_topic : tableau affichant les message d'un topic (viewtopic.body.html)
+
+notice : zone d'informations en bas d'un massage (édition par exemple) (viewtopic_body.html)
+
+signature_div : zone de signature dans les post (viewtopic_body.html, posting_preview.html)
+
+error : divers messages d'erreurs (posting_editor.html, member_list.html, ucp_avatar_options.html, ucp_groups_manage.html)
+
+panel : fond pour le "draft" (draft.html, posting_smilies.html, confirm_body.html, captcha_default.html, message_body.html, ucp_groups_*.html)
+
+panel_2 : fond pour de (memberlist_im.html)
+
+row_bg[1/2] : fond des lignes du draft (draft.html, posting_topic_review.html, memberlist_leader.html, viewonline_body.html, ucp_attachements.html, ucp_groups_*.html)
+
+post_body : (viewonline_whois.html)
+
+codebox : pour l'affichage des quote code dans les post (à vérifier voir si utile comme class) (bbcode.html)
+
+inline_attachment : pour les fichier attaché inlines (bbcode.html)
+
+float_right : pour toutes les div flottante à droite (memberliste_view.html et à mettre pour remplacer les 'style="float: right;"')
+
+float_left : idem mais à gauche
+
+
+
+
+
+
+Balises phpBB :
+
+{TAGS}
+{IMG_nomDeLImageDansimageset.cfg_WIDTH}
+{IMG_nomDeLImageDansimageset.cfg_HEIGHT}
+{IMG_nomDeLImageDansimageset.cfg_SRC}
+(possible de les utiliser directement dans le css)
+SITE_TICKET : renvoi le code HTML pour le contenu de "Divers choses importantes" SITE_URL : renvoi l'url pour lire la divers chose importante en entier SITE_AUTHOR : renvoi le nom de l'auteur de la chose importante SITE_DATE : date d'écriture de la chose importante SITE_EVENTS : sert au calendrier (mais qu'on a dit qu'on supprimait)

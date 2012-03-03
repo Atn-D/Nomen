@@ -1,0 +1,33 @@
+<!-- IF .draftrow -->
+
+<div class="panel">
+	<h3>{L_LOAD_DRAFT}</h3>
+	<p>{L_LOAD_DRAFT_EXPLAIN}</p>
+</div>
+
+<div class="<!-- IF S_PRIVMSGS -->panel<!-- ENDIF -->">
+	<ul>
+		<li>
+			
+			<p>{L_LOAD_DRAFT}</p>
+			<p>{L_SAVE_DATE}</p>
+			
+		</li>
+	</ul>
+	<ul>
+
+	<!-- BEGIN draftrow -->
+		<li class="row<!-- IF draftrow.S_ROW_COUNT is even -->_bg1<!-- ELSE -->_bg2<!-- ENDIF -->">
+			<p>
+				<a href="{draftrow.U_INSERT}" title="{L_LOAD_DRAFT}">{draftrow.DRAFT_SUBJECT}</a><br />
+				<!-- IF not S_PRIVMSGS --><!-- IF draftrow.S_LINK_TOPIC -->{L_TOPIC}: <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a>
+				<!-- ELSEIF draftrow.S_LINK_FORUM -->{L_FORUM}: <a href="{draftrow.U_VIEW}">{draftrow.TITLE}</a>
+				<!-- ELSE -->{L_NO_TOPIC_FORUM}<!-- ENDIF --><!-- ENDIF -->
+			</p>
+			<p>{draftrow.DATE}</p>
+		</li>
+	<!-- END draftrow -->
+
+	</ul>
+</div>
+<!-- ENDIF -->

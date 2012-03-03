@@ -1,0 +1,58 @@
+<span style="float: right;">
+<!-- IF S_DISPLAY_JUMPBOX -->
+<form action="{S_JUMPBOX_ACTION}" method="get" name="jumpbox" onsubmit="if(document.jumpbox.f.value == -1){return false;}" id="jumpbox">
+	
+	<!-- IF S_IN_MCP and S_MERGE_SELECT -->
+		{L_SELECT_TOPICS_FROM}
+	<!-- ELSEIF S_IN_MCP -->
+		{L_MODERATE_FORUM}
+	<!-- ELSE -->
+		{L_JUMP_TO}
+	<!-- ENDIF -->
+	
+	<select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ forms['jumpbox'].submit() }">
+		<!-- BEGIN jumpbox_forums -->
+			<!-- IF jumpbox_forums.S_FORUM_COUNT == 1 -->
+				<option value="-1">------------------</option>
+			<!-- ENDIF -->
+				<option value="{jumpbox_forums.FORUM_ID}"{jumpbox_forums.SELECTED}>
+					{jumpbox_forums.FORUM_NAME}
+				</option>
+		<!-- END jumpbox_forums -->
+	</select>
+	<input type="submit" value="{L_GO}" />
+	               
+</form>
+<!-- ENDIF -->
+<!-- IF S_TOPIC_MOD -->
+	<form method="post" action="{S_MOD_ACTION}">
+	<fieldset class="quickmod">
+		<label for="quick-mod-select">{L_QUICK_MOD}:</label> {S_TOPIC_MOD} <input type="submit" value="{L_GO}" class="button2" />
+		{S_FORM_TOKEN}
+	</fieldset>
+	</form>
+<!-- ENDIF -->
+<br />
+    </span>
+<!-- IF not S_IS_BOT -->
+	<br />
+		<!-- IF S_VIEWTOPIC -->
+				<!-- IF S_DISPLAY_POST_INFO -->
+					<a href="{U_POST_NEW_TOPIC}" rel="nofollow" class="bouton">Nouveau</a>
+				<!-- ENDIF -->
+						<!-- IF S_IS_LOCKED and not S_TOPIC_MOD -->
+							<a href="#" rel="nofollow" class="bouton">Vérouillé</a>
+			        	<!-- ELSE -->
+							<a href="{U_POST_REPLY_TOPIC}" rel="nofollow" class="bouton">Répondre</a>
+			        	<!-- ENDIF -->       
+			
+		<!-- ELSEIF S_VIEWFORUM -->
+			<!-- IF S_USER_CAN_POST and not MODERATORS-->
+				<a href="{U_POST_NEW_TOPIC}" rel="nofollow" class="bouton">Nouveau</a>
+			<!-- ELSE -->
+				<a href="#" rel="nofollow" class="bouton">Vérouillé</a>
+			<!-- ENDIF -->
+		<!-- ENDIF -->
+		
+		
+<!-- ENDIF -->

@@ -1,0 +1,82 @@
+
+<div class="message_categorie_2" id="3_hidden" style="display:none;">
+    <div class="message_categorie">
+        <span style="float:left;">{L_ADD_POLL}</span>
+        <span style="float:right;"><a class="contract" alt="Cacher" href="javascript:void(0)" onclick="contractDiv(3);"></a></span>
+    </div>
+
+
+	<!-- IF S_SHOW_POLL_BOX -->
+	<p>{L_ADD_POLL_EXPLAIN}</p>
+	<hr />
+	<!-- ENDIF -->
+
+	<fieldset>
+	<!-- IF S_SHOW_POLL_BOX -->
+		<!-- IF S_POLL_DELETE -->
+			
+				<label for="poll_delete">{L_POLL_DELETE}:</label>
+				<label for="poll_delete"><input type="checkbox" name="poll_delete" id="poll_delete"<!-- IF S_POLL_DELETE_CHECKED --> checked="checked"<!-- ENDIF --> /> </label>
+			<br />
+		<!-- ENDIF -->
+			
+		<p>
+			<label for="poll_title">{L_POLL_QUESTION}:</label>
+			<input type="text" name="poll_title" id="poll_title" maxlength="255" value="{POLL_TITLE}" class="inputbox" />
+		</p>
+			<br />
+		
+			<label for="poll_option_text">{L_POLL_OPTIONS}:</label>
+			<br />
+			<textarea name="poll_option_text" id="poll_option_text" rows="5" cols="35" class="inputbox">{POLL_OPTIONS}</textarea>
+			<br />
+			{L_POLL_OPTIONS_EXPLAIN}
+			<br />
+			
+		<hr />
+
+
+		
+		<p>	
+			<label for="poll_max_options">{L_POLL_MAX_OPTIONS}:</label>
+			<input type="text" name="poll_max_options" id="poll_max_options" size="3" maxlength="3" value="{POLL_MAX_OPTIONS}" class="inputbox autowidth" />
+		</p>	
+			{L_POLL_MAX_OPTIONS_EXPLAIN}
+		
+			<br />
+			<br />
+			
+		<p>
+			<label for="poll_length">{L_POLL_FOR}:</label>
+			<label for="poll_length"><input type="text" name="poll_length" id="poll_length" size="3" maxlength="3" value="{POLL_LENGTH}" class="inputbox autowidth" /> {L_DAYS}</label>
+		</p>
+			{L_POLL_FOR_EXPLAIN}
+		
+			<br />
+
+		<!-- IF S_POLL_VOTE_CHANGE -->
+			<hr />
+			
+				<p><label for="poll_vote_change">{L_POLL_VOTE_CHANGE}:</label>
+				<label for="poll_vote_change"><input type="checkbox" id="poll_vote_change" name="poll_vote_change"{VOTE_CHANGE_CHECKED} />
+				</p>
+				{L_POLL_VOTE_CHANGE_EXPLAIN}</label>
+			
+		<!-- ENDIF -->
+
+	<!-- ELSEIF S_POLL_DELETE -->
+		
+			<br />
+			
+			<label for="poll_delete">{L_POLL_DELETE}:</label>
+			<label for="poll_delete"><input type="checkbox" name="poll_delete" id="poll_delete"<!-- IF S_POLL_DELETE_CHECKED --> checked="checked"<!-- ENDIF --> /> </label>
+		
+	<!-- ENDIF -->
+	</fieldset>
+	<br />
+
+</div>
+<div class="message_categorie" id="3_show" style="display:block;">
+    <span style="float:left;">{L_ADD_POLL}</span>
+    <span style="float:right;"><a class="expand" alt="Afficher" href="javascript:void(0)" onclick="expandDiv(3);"></a></span>
+</div>

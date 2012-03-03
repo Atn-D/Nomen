@@ -1,0 +1,27 @@
+
+
+<div class="message_categorie_2" id="0_hidden" style="display:none;">
+    <div class="message_categorie">
+        <span style="float:left;">Fichier joint</span>
+        <span style="float:right;"><a class="contract" alt="Cacher" href="javascript:void(0)" onclick="contractDiv(0);"></a></span>
+    </div>
+    <p style="clear:both;">{L_ADD_ATTACHMENT_EXPLAIN}</p>
+
+    <fieldset class="fields2">
+        <p><label for="fileupload">{L_FILENAME}:
+        <input type="file" name="fileupload" id="fileupload" maxlength="{FILESIZE}" value="" class="inputbox autowidth" />
+        <input type="submit" name="add_file" value="{L_ADD_FILE}" class="button2" onclick="upload = true;" />
+        </label></p>
+        
+        <p><label for="filecomment">{L_FILE_COMMENT}:
+        <textarea name="filecomment" id="filecomment" rows="1" cols="40" class="inputbox autowidth">{FILE_COMMENT}</textarea>
+        </label></p>
+    </fieldset>
+    <br />
+</div>
+
+
+<div class="message_categorie" id="0_show" style="display:block;">
+    <span style="float:left;">Fichier joint</span>
+    <span style="float:right;"><a class="expand" alt="Afficher" href="javascript:void(0)" onclick="expandDiv(0);"></a></span>
+</div>

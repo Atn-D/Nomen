@@ -1,0 +1,56 @@
+<!-- INCLUDE overall_header.html -->
+<br />
+<h2>{L_FAQ_TITLE}</h2>
+<br />
+
+
+	<a name="faqlinks"></a>
+		<!-- BEGIN faq_block -->
+			
+				<br />
+				
+				<h2>{faq_block.BLOCK_TITLE} :</h2>
+	
+				<div style="padding-left: 20px;">
+				<!-- BEGIN faq_row -->
+					<p><a href="#f{faq_block.S_ROW_COUNT}r{faq_block.faq_row.S_ROW_COUNT}">{faq_block.faq_row.FAQ_QUESTION}</a></p>
+				<!-- END faq_row -->
+				</div>
+			
+		<!-- END faq_block -->
+	
+
+
+
+<br />
+<br />
+
+
+<!-- BEGIN faq_block -->
+
+		
+<div class="faq_section">
+			<h2>{faq_block.BLOCK_TITLE}</h2>
+			<br />
+			<!-- BEGIN faq_row -->
+				
+				<p id="f{faq_block.S_ROW_COUNT}r{faq_block.faq_row.S_ROW_COUNT}" >
+					<strong>{faq_block.faq_row.FAQ_QUESTION}</strong>
+					{faq_block.faq_row.FAQ_ANSWER}
+				</p>
+					<a href="#faqlinks" class="top2" >{L_BACK_TO_TOP}</a>
+				
+				<!-- IF not faq_block.faq_row.S_LAST_ROW --><hr /><!-- ENDIF -->
+			<!-- END faq_row -->
+	</div>	
+
+
+<!-- END faq_block -->
+
+
+
+
+
+
+<!-- INCLUDE jumpbox.html -->
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,145 @@
+<!-- INCLUDE mcp_header.html -->
+<div id="MCP">
+<h2><a href="{U_VIEW_TOPIC}">{L_TOPIC}: {TOPIC_TITLE}</a></h2>
+
+<form id="mcp" method="post" action="{S_MCP_ACTION}">
+
+<div class="panel">
+	
+
+	<fieldset id="display-panel" class="fields2">
+
+		<label for="posts_per_page">{L_POSTS_PER_PAGE}:</label><input class="inputbox autowidth" type="text" name="posts_per_page" id="posts_per_page" size="6" value="{POSTS_PER_PAGE}" />{L_POSTS_PER_PAGE_EXPLAIN}
+		
+	<br />
+	
+		<label>{L_DISPLAY_POSTS}:</label>
+		{S_SELECT_SORT_DAYS}&nbsp;&nbsp;<label>{L_SORT_BY} {S_SELECT_SORT_KEY}</label><label>{S_SELECT_SORT_DIR}</label> <input type="submit" name="sort" value="{L_GO}" class="button2" />
+
+	</fieldset>
+<br />
+<div class="separateur"></div>
+<br />
+<!-- IF S_CAN_SPLIT -->
+	<fieldset id="split-panel" class="fields2">
+		<p>{L_SPLIT_TOPIC_EXPLAIN}</p>
+
+	<!-- IF S_SHOW_TOPIC_ICONS -->
+		<label for="icon">{L_TOPIC_ICON}:</label>
+		<label for="icon"><input type="radio" name="icon" id="icon" value="0" checked="checked" /> {L_NO_TOPIC_ICON}</label>
+			<!-- BEGIN topic_icon --><label for="icon-{topic_icon.ICON_ID}"><input type="radio" name="icon" id="icon-{topic_icon.ICON_ID}" value="{topic_icon.ICON_ID}" {topic_icon.S_ICON_CHECKED} /><img src="{topic_icon.ICON_IMG}" width="{topic_icon.ICON_WIDTH}" height="{topic_icon.ICON_HEIGHT}" alt="" title="" /></label> <!-- END topic_icon -->
+
+	<!-- ENDIF -->
+    
+    <br />
+    
+	<label for="subject">{L_SPLIT_SUBJECT}:</label>
+	<input type="text" name="subject" id="subject" size="45" maxlength="64" tabindex="2" value="{SPLIT_SUBJECT}" title="{L_SPLIT_SUBJECT}" class="inputbox" />
+	
+	<br />
+	<label>{L_SPLIT_FORUM}:</label>
+	<select name="to_forum_id">{S_FORUM_SELECT}</select>
+	</fieldset>
+<!-- ENDIF -->
+<br />
+<div class="separateur"></div>
+<br />
+<!-- IF S_CAN_MERGE -->
+	<fieldset id="merge-panel" class="fields2">
+	    <p>{L_MERGE_TOPIC_EXPLAIN}</p>
+	
+	    <label for="to_topic_id">{L_MERGE_TOPIC_ID}:</label>
+	    <input class="inputbox autowidth" type="text" size="6" name="to_topic_id" id="to_topic_id" value="{TO_TOPIC_ID}" />
+	    | <a href="{U_SELECT_TOPIC}" >{L_SELECT_TOPIC}</a>
+		<!-- IF TO_TOPIC_INFO --><br />{TO_TOPIC_INFO}<!-- ENDIF -->
+
+	</fieldset>
+<!-- ENDIF -->
+
+	
+</div>
+
+<div class="panel">
+	
+
+	<h3 id="review">
+		<span class="right-box"><a href="#review" onclick="viewableArea(getElementById('topicreview'), true); var rev_text = getElementById('review').getElementsByTagName('a').item(0).firstChild; if (rev_text.data == '{LA_EXPAND_VIEW}'){rev_text.data = '{LA_COLLAPSE_VIEW}'; } else if (rev_text.data == '{LA_COLLAPSE_VIEW}'){rev_text.data = '{LA_EXPAND_VIEW}'};">{L_EXPAND_VIEW}</a></span>
+		{L_TOPIC_REVIEW}: {TOPIC_TITLE}
+	</h3>
+
+
+    <table class="tableau_forum">
+        <thead>
+            <tr id="tableau_forum_header">
+                <td>
+                    Message
+                </td>
+                <td>
+                    Selectionner
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+		<!-- BEGIN postrow -->
+		<tr class="topic_<!-- IF postrow.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+		    <td class="<!-- IF postrow.S_POST_REPORTED -->reported<!-- ENDIF --><!-- IF postrow.S_TOPIC_DELETED -->soft_deleted<!-- ENDIF -->">
+			<div class="postbody" id="pr{postrow.POST_ID}">
+
+				<h3><a href="{postrow.U_POST_DETAILS}">{postrow.POST_SUBJECT}</a></h3>
+				<p class="author"><a href="#pr{postrow.POST_ID}">{postrow.MINI_POST_IMG}</a> {L_POSTED} {postrow.POST_DATE} {L_POST_BY_AUTHOR} <em>{postrow.POST_AUTHOR_FULL}</em><!-- IF postrow.U_MCP_DETAILS --> [ <a href="{postrow.U_MCP_DETAILS}">{L_POST_DETAILS}</a> ]<!-- ENDIF --></p>
+
+				<!-- IF postrow.S_POST_UNAPPROVED or postrow.S_POST_REPORTED -->
+				<p class="rules">
+					<!-- IF postrow.S_POST_UNAPPROVED -->{UNAPPROVED_IMG} <a href="{postrow.U_MCP_APPROVE}"><em>{L_POST_UNAPPROVED}<em></a><br /><!-- ENDIF -->
+					<!-- IF postrow.S_POST_REPORTED -->{REPORTED_IMG} <a href="{postrow.U_MCP_REPORT}"><em>{L_POST_REPORTED}</em></a><!-- ENDIF -->
+				</p>
+				<!-- ENDIF -->
+
+				<div class="content" id="message_{postrow.POST_ID}">{postrow.MESSAGE}</div>
+
+				<!-- IF postrow.S_HAS_ATTACHMENTS -->
+					{L_ATTACHMENTS}
+						<!-- BEGIN attachment -->
+							{postrow.attachment.DISPLAY_ATTACHMENT}
+							<br />
+						<!-- END attachment -->
+				<!-- ENDIF -->
+
+			</div>
+            </td>
+            <td>
+                <a href="{postrow.U_POST_DETAILS}" title="{L_POST_DETAILS}">{L_POST_DETAILS}</a><br />
+    			{L_SELECT}: <input type="checkbox" name="post_id_list[]" value="{postrow.POST_ID}"<!-- IF postrow.S_CHECKED --> checked="checked"<!-- ENDIF --> />
+    		</td>
+		</tr>
+		<!-- END postrow -->
+</tbody>
+</table>
+
+
+<br />
+	<!-- IF PAGINATION or TOTAL_POSTS -->
+			<!-- IF TOTAL_POSTS --> {TOTAL_POSTS}<!-- ENDIF -->
+			<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> &bull; <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE --> &bull; {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
+	<!-- ENDIF -->
+
+	
+</div>
+
+<fieldset class="display-actions" align="right">
+	<select name="action">
+		<option value="" selected="selected">{L_SELECT_ACTION}</option>
+		<!-- IF S_CAN_APPROVE --><option value="approve">{L_APPROVE_POSTS}</option><!-- ENDIF -->
+		<!-- IF S_CAN_LOCK --><option value="lock_post">{L_LOCK_POST_POSTS} [ {L_LOCK_POST_EXPLAIN} ]</option><option value="unlock_post">{L_UNLOCK_POST_POSTS}</option><!-- ENDIF -->
+		<!-- IF S_CAN_DELETE --><option value="delete_post">{L_DELETE_POSTS}</option><!-- ENDIF -->
+		<!-- IF S_CAN_MERGE --><option value="merge_posts"<!-- IF S_MERGE_VIEW --> selected="selected"<!-- ENDIF -->>{L_MERGE_POSTS}</option><!-- ENDIF -->
+		<!-- IF S_CAN_SPLIT --><option value="split_all"<!-- IF S_SPLIT_VIEW --> selected="selected"<!-- ENDIF -->>{L_SPLIT_POSTS}</option><option value="split_beyond">{L_SPLIT_AFTER}</option><!-- ENDIF -->
+	</select>&nbsp;
+	<input class="button1" type="submit" name="mcp_topic_submit" value="{L_SUBMIT}" />
+{S_HIDDEN_FIELDS}
+{S_FORM_TOKEN}
+</fieldset>
+
+</form>
+</div>
+<!-- INCLUDE mcp_footer.html -->

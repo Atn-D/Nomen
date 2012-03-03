@@ -1,0 +1,36 @@
+<!-- INCLUDE ucp_header.html -->
+
+<h2>Caracters Manager</h2>
+
+<div class="panel">
+
+	<p>In this panel you can manage Dofus caracters. Your caracters will apear on your profil.</p>
+<p>
+<table class="table1" cellspacing="1">
+	<thead>
+	<tr>
+		<th class="name">Name</th>
+		<th class="posts">Level</th>
+		<th class="info">Guild</th>
+		<th class="joined">Class</th>
+		<th class="active">Sex</th>
+	</tr>
+	</thead>
+	<tbody>
+<!-- BEGIN caracters -->
+	<tr class="<!-- IF caracters.S_ROW_COUNT is even -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+		<td>{caracters.C_NAME}</td>
+		<td class="posts">{caracters.C_LEVEL}</td>
+		<td class="info">{caracters.C_GUILD}</td>
+		<td>{caracters.C_CLASS}</td>
+		<td>{caracters.C_SEX}</td>
+	</tr>
+<!-- END caracters -->
+	</tbody>
+	</table>
+
+
+</p>
+</div>
+
+<!-- INCLUDE ucp_footer.html -->
