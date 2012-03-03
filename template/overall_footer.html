@@ -5,16 +5,17 @@
 	<center>
 		<div class="copyright">
 		    <!-- IF U_MCP or U_ACP -->
-			<p><!-- IF U_ACP -->	
-                    <a href="{U_ACP}">{L_ACP}</a> | <a href="/Autre/piwik/">Piwik</a>
-    				<!-- IF U_MCP -->|<!-- ENDIF -->
-    			<!-- ENDIF -->
-    			<!-- IF U_MCP -->
-    				<a href="{U_MCP}">{L_MCP}</a>
-    			<!-- ENDIF -->
-				<!-- IF U_MCP or U_ACP -->|<!-- ENDIF --> <a href="/hawkeye">Hawkeye</a></p>
-<!-- ELSE --><p><a href="/hawkeye">Hawkeye</a></p>
-<!-- ENDIF -->
+				<p>
+					<!-- IF U_ACP -->	
+                    	<a href="{U_ACP}">{L_ACP}</a> | <a href="/Autre/piwik/">Piwik</a>
+    					<!-- IF U_MCP -->|<!-- ENDIF -->
+    				<!-- ENDIF -->
+    				<!-- IF U_MCP -->
+    					<a href="{U_MCP}">{L_MCP}</a>
+    				<!-- ENDIF -->
+				</p>
+			<!-- ENDIF -->
+				
 		    {SITE_DESCRIPTION}
 		</div>
 
