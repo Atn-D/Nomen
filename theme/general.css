@@ -21,6 +21,10 @@ body{
 }
 
 
+table{
+	margin-top:4px;
+}
+
 .tableau_forum{
 	border: solid 1px #333;
 }
