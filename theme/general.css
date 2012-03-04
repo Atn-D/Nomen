@@ -16,8 +16,10 @@ body{
 	text-align:right;
 }
 
-#logo{
+.menubarre{
 	background-color:#0F0;
+	height:100px;
+	width:100px;
 }
 
 #barre_bouton{
