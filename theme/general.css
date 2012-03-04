@@ -16,6 +16,10 @@ body{
 	text-align:right;
 }
 
+#logo{
+	background-color:#0F0;
+}
+
 #barre_bouton{
 	border: solid 1px #333;
 }
@@ -35,13 +39,6 @@ table{
 	padding:2px;
 }
 
-.tableau_forum_header{
-	
-}
-
-.tableau_forum_footer{
-	text-align:right;
-}
 
 #connexion_bas_page{
 	border: solid 1px #333;
@@ -72,6 +69,7 @@ table{
 #utilisateur_24h{
 	padding-left:210px;
 }
+
 
 #footer{
 	border: solid 1px #333;
