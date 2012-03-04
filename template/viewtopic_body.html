@@ -60,21 +60,12 @@
     <!-- ELSE -->
 {poll_option.POLL_OPTION_CAPTION} : <br />
     <!-- ENDIF -->
-				<div class="
-<!-- IF poll_option.POLL_OPTION_PCT < 10 -->
-resulat_sondage0
-<!-- ELSEIF poll_option.POLL_OPTION_PCT < 20 -->
-resulat_sondage1
-<!-- ELSEIF poll_option.POLL_OPTION_PCT < 40 -->
-resulat_sondage2
-<!-- ELSEIF poll_option.POLL_OPTION_PCT < 60 -->
-resulat_sondage3
-<!-- ELSEIF poll_option.POLL_OPTION_PCT < 80 -->
-resulat_sondage4
-<!-- ELSE -->
-resulat_sondage5
-<!-- ENDIF -->
-" style="display: inline-block;" >{poll_option.POLL_OPTION_RESULT}</div>
+				<div class="<!-- IF poll_option.POLL_OPTION_PCT < 10 -->resulat_sondage0
+							<!-- ELSEIF poll_option.POLL_OPTION_PCT < 20 -->resulat_sondage1
+							<!-- ELSEIF poll_option.POLL_OPTION_PCT < 40 -->resulat_sondage2
+							<!-- ELSEIF poll_option.POLL_OPTION_PCT < 60 -->resulat_sondage3
+							<!-- ELSEIF poll_option.POLL_OPTION_PCT < 80 -->resulat_sondage4
+							<!-- ELSE -->resulat_sondage5<!-- ENDIF -->" style="display: inline-block;" >{poll_option.POLL_OPTION_RESULT}</div>
 					
 				<!-- IF poll_option.POLL_OPTION_RESULT == 0 -->
 					<!---{L_NO_VOTES}!-->({poll_option.POLL_OPTION_PERCENT})
@@ -110,7 +101,7 @@ resulat_sondage5
 
 <table class="tableau_affichage_topic" width="100%">
 	
-<!--*	<caption>{TOPIC_TITLE}</caption> !-->
+	<caption>{TOPIC_TITLE}</caption>
 	<thead>
 	<tr>
 		<td colspan="3">
@@ -119,7 +110,7 @@ resulat_sondage5
 		<!-- ENDIF -->
 		</td>
 	</tr>
-<!--	<tr>
+	<tr class="tableau_forum_header">
 		<th width="20%">
 			Auteur
 		</th>
@@ -127,34 +118,30 @@ resulat_sondage5
 			Message
 		</th>
 	</tr>
-!-->	
-	<tr height="0">
-		<td colspan="3" class="separateur" height="0"></td>
-	</tr>
+
 	</thead>
 	<tbody valign="top">
 	<!-- BEGIN postrow -->
 	
-	<tr valign="top" <!-- IF postrow.S_POST_DELETED -->class="soft_deleted"<!-- ELSE -->class="topic_<!-- IF postrow.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF -->"<!-- ENDIF --> height="50px">
-		<td rowspan="3" class="info_post_user" valign="top">
-			<!-- IF postrow.S_FIRST_UNREAD --><a id="unread"></a><!-- ENDIF -->
+	<tr <!-- IF postrow.S_POST_DELETED -->class="soft_deleted"<!-- ELSE -->class="topic_<!-- IF postrow.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF -->"<!-- ENDIF -->>
+		<td rowspan="3" class="info_post_user">
+			<!-- IF postrow.S_FIRST_UNREAD --><a class="unread"></a><!-- ENDIF -->
 			<!-- IF postrow.S_IGNORE_POST -->
 				<div class="ignore">{postrow.L_IGNORE_POST}</div>
 			<!-- ENDIF -->
 			<a name="p{postrow.POST_ID}" id="p{postrow.POST_ID}" class="pseudo"></a>
-			<center><p id="pseudo">{postrow.POST_AUTHOR_FULL}</p></center>
+			<p class="pseudo">{postrow.POST_AUTHOR_FULL}</p>
 			<!-- IF postrow.RANK_TITLE or postrow.RANK_IMG -->
-				<center><p id="pseudo">{postrow.RANK_TITLE}<p></b>
-				
-				{postrow.RANK_IMG}</center>
+				<p class="pseudo">{postrow.RANK_TITLE}</p>
+				{postrow.RANK_IMG}
 				
 			<!-- ENDIF -->
 			<!-- IF postrow.POSTER_AVATAR -->
-				<center><!-- IF postrow.U_POST_AUTHOR -->
+				<!-- IF postrow.U_POST_AUTHOR -->
 					<a href="{postrow.U_POST_AUTHOR}">{postrow.POSTER_AVATAR}</a>
 				<!-- ELSE -->
 					{postrow.POSTER_AVATAR}
-				<!-- ENDIF --></center>
+				<!-- ENDIF -->
 				<br />
 			<!-- ENDIF -->
 			
@@ -207,21 +194,21 @@ resulat_sondage5
 		<!-- END custom_fields -->
 
 		<!-- IF postrow.U_PM -->
-			<a href="{postrow.U_PM}" title="{L_PRIVATE_MESSAGE}" id="img_icon_contact_pm" target="_blank"></a>
+			<a href="{postrow.U_PM}" title="{L_PRIVATE_MESSAGE}" class="img_icon_contact_pm" target="_blank"></a>
 		<!-- ENDIF -->
 		<!-- IF postrow.U_EMAIL -->
-			<a href="{postrow.U_EMAIL}" id="img_icon_contact_email" target="_blank">	
+			<a href="{postrow.U_EMAIL}" class="img_icon_contact_email" target="_blank">	
 			</a>
 		<!-- ENDIF -->
 		<!-- IF postrow.U_WWW -->
-			<a href="{postrow.U_WWW}" title="{L_VISIT_WEBSITE}: {postrow.U_WWW}" target="_blank" id="img_icon_contact_www">
+			<a href="{postrow.U_WWW}" title="{L_VISIT_WEBSITE}: {postrow.U_WWW}" target="_blank" class="img_icon_contact_www">
 			</a>
 		<!-- ENDIF -->
 		</td>
 		
         <td> 
             <span style="float:left;">
-                <a href="{postrow.U_MINI_POST}" <!-- IF postrow.S_UNREAD_POST --> id="mini_icone_pas_lu" <!-- ELSE --> id="mini_icone_lu" <!-- ENDIF -->>  
+                <a href="{postrow.U_MINI_POST}" <!-- IF postrow.S_UNREAD_POST --> class="mini_icone_pas_lu" <!-- ELSE --> class="mini_icone_lu" <!-- ENDIF -->>  
                 </a>
                 Sujet: {TOPIC_TITLE} | {postrow.POST_DATE}
             </span>
@@ -288,7 +275,7 @@ resulat_sondage5
 			<!-- ENDIF -->
 		</td>
 	</tr>
-	<tr valign="bottom" <!-- IF postrow.S_POST_DELETED -->class="soft_deleted"<!-- ELSE -->class="topic_<!-- IF postrow.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF -->"<!-- ENDIF -->>
+	<tr <!-- IF postrow.S_POST_DELETED -->class="soft_deleted"<!-- ELSE -->class="topic_<!-- IF postrow.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF -->"<!-- ENDIF -->>
 	    <td>
 		<!-- IF postrow.SIGNATURE -->
 		<hr />
@@ -299,23 +286,21 @@ resulat_sondage5
 		
 		</td>
 	</tr>
-	<tr>
-		<td class="separateur" colspan="3" height="0"></td>
-	</tr>
+	
 <!-- END postrow -->
 <tr>
     <td colspan="3">
        <span style="float: right;">
-<!-- IF S_VIEWTOPIC -->
-	<a href="{U_VIEW_FORUM}" accesskey="r">{L_RETURN_TO} {FORUM_NAME}</a>
-<!-- ELSEIF S_VIEWFORUM -->
-	<a href="{U_INDEX}" accesskey="r">{L_RETURN_TO} {L_INDEX}</a>
-<!-- ELSEIF SEARCH_TOPIC -->
-	<a href="{U_SEARCH_TOPIC}" accesskey="r">{L_RETURN_TO}: {SEARCH_TOPIC}</a>
-<!-- ELSEIF S_SEARCH_ACTION -->
-	<a href="{U_SEARCH}" title="{L_SEARCH_ADV}" accesskey="r">{L_RETURN_TO_SEARCH_ADV}</a>
-<!-- ENDIF -->
-</span>
+		<!-- IF S_VIEWTOPIC -->
+			<a href="{U_VIEW_FORUM}" accesskey="r">{L_RETURN_TO} {FORUM_NAME}</a>
+		<!-- ELSEIF S_VIEWFORUM -->
+			<a href="{U_INDEX}" accesskey="r">{L_RETURN_TO} {L_INDEX}</a>
+		<!-- ELSEIF SEARCH_TOPIC -->
+			<a href="{U_SEARCH_TOPIC}" accesskey="r">{L_RETURN_TO}: {SEARCH_TOPIC}</a>
+		<!-- ELSEIF S_SEARCH_ACTION -->
+			<a href="{U_SEARCH}" title="{L_SEARCH_ADV}" accesskey="r">{L_RETURN_TO_SEARCH_ADV}</a>
+		<!-- ENDIF -->
+	</span>
 <span style="float:left;">
 <!-- IF S_DISPLAY_POST_INFO or PAGINATION or TOTAL_POSTS or TOTAL_TOPICS -->
 	<!-- IF PAGINATION or TOTAL_POSTS or TOTAL_TOPICS -->
@@ -324,8 +309,7 @@ resulat_sondage5
 		<!-- ENDIF -->
 		<!-- IF PAGE_NUMBER -->
 			<!-- IF PAGINATION --> 
-			<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> 
-			~ {PAGINATION}
+			{PAGE_NUMBER} ~ {PAGINATION}
 			<!-- ELSE --> 
 			{PAGE_NUMBER}
 			<!-- ENDIF -->

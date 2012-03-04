@@ -49,29 +49,29 @@
 	<table class="tableau_forum" width="100%">
 		<!-- BEGIN topicrow -->	
 			<!-- IF topicrow.S_FIRST_ROW or not topicrow.S_TOPIC_TYPE_SWITCH -->
-				<tr id="tableau_forum_header">
-					<th colspan="2" align="center">
+				<tr class="tableau_forum_header">
+					<th colspan="2">
 						<!-- IF S_DISPLAY_ACTIVE -->{L_ACTIVE_TOPICS}
 						<!-- ELSEIF topicrow.S_TOPIC_TYPE_SWITCH and topicrow.S_TOPIC_TYPE gt 1 -->{L_ANNOUNCEMENTS}
 						<!-- ELSE -->{L_TOPICS}
 						<!-- ENDIF -->
 					</th>
-					<th align="center" nowrap="nowrap" width="100px">
+					<th width="100px">
 						{L_REPLIES}
 					</th>
-					<th align="center" nowrap="nowrap" width="100px">
+					<th width="100px">
 						Auteur
 					</th>
-					<th align="center" nowrap="nowrap" width="100px">
+					<th width="100px">
 						{L_VIEWS}
 					</th>
-					<th align="center" nowrap="nowrap" width="200px">
+					<th width="200px">
 						{L_LAST_POST}
 					</th>
 				</tr>
 			<!-- ENDIF -->
 				<tr <!-- IF topicrow.S_TOPIC_DELETED -->class="soft_deleted"<!-- ENDIF -->>
-					<td align="center" valign="middle" width="40px">
+					<td width="40px">
                             {topicrow.TOPIC_FOLDER_IMG}
 					</td>
 					<td class="tableau_forum_topic" align="left">
@@ -97,16 +97,16 @@
 								{topicrow.PAGINATION}
 							<!-- ENDIF -->
 					</td>
-					<td align="center" valign="middle">
+					<td>
 						<span class="postdetails">{topicrow.REPLIES}</span>
 					</td>
-					<td align="center" valign="middle">
+					<td>
 						<span class="name"><strong>{topicrow.TOPIC_AUTHOR_FULL}</strong></span>
 					</td>
-					<td align="center" valign="middle">
+					<td>
 						<span class="postdetails">{topicrow.VIEWS}</span>
 					</td>
-					<td  align="center" valign="middle" nowrap="nowrap">
+					<td>
 						<span class="postdetails">{topicrow.LAST_POST_TIME}<br />
 							<strong>{topicrow.LAST_POST_AUTHOR_FULL}</strong>
  							<!-- IF not S_IS_BOT -->
@@ -115,36 +115,35 @@
                             </span>
 					</td>
 				</tr>
-<!-- BEGINELSE -->
+			<!-- BEGINELSE -->
 				<tr>
-					<td colspan="7" align="center">
+					<td colspan="7">
 						{L_NO_TOPICS}
 					</td>
 				</tr>
 <!-- END topicrow -->
 <!-- IF not S_IS_BOT and U_MARK_TOPICS -->
-<tr id="tableau_forum_footer">
-<td colspan="7" style="border: 0px none; padding-right: 20px;">
-   <span style="float:left;">
-    <!-- IF S_DISPLAY_POST_INFO or PAGINATION or TOTAL_POSTS or TOTAL_TOPICS -->
-    <!-- IF PAGINATION or TOTAL_POSTS or TOTAL_TOPICS -->
-    		<!-- IF TOTAL_TOPICS -->{TOTAL_TOPICS} ~<!-- ENDIF -->
-    		<!-- IF PAGE_NUMBER -->
-    			<!-- IF PAGINATION --> 
-    			<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> 
-    			~ {PAGINATION}
-    			<!-- ELSE --> 
-    			{PAGE_NUMBER}
-    		<!-- ENDIF -->
-    <!-- ENDIF -->
-    <!-- ENDIF -->
-    </span>
-<a style="float: right;" href="{U_MARK_TOPICS}" accesskey="m">{L_MARK_TOPICS_READ}</a>
-</td>
-</tr>
+	<tr class="tableau_forum_footer">
+		<td colspan="7">
+    		<!-- IF S_DISPLAY_POST_INFO or PAGINATION or TOTAL_POSTS or TOTAL_TOPICS -->
+    			<!-- IF PAGINATION or TOTAL_POSTS or TOTAL_TOPICS -->
+    				<!-- IF TOTAL_TOPICS -->{TOTAL_TOPICS} ~<!-- ENDIF -->
+    				<!-- IF PAGE_NUMBER -->
+    					<!-- IF PAGINATION --> 
+    						{PAGE_NUMBER} ~ {PAGINATION}
+    					<!-- ELSE --> 
+    						{PAGE_NUMBER}
+    					<!-- ENDIF -->
+    				<!-- ENDIF -->
+    			<!-- ENDIF -->
+				<a href="{U_MARK_TOPICS}" accesskey="m">{L_MARK_TOPICS_READ}</a>
+			<!-- ENDIF -->
+		</td>
+	</tr>
 <!-- ENDIF -->
-	</table>
-<!-- ENDIF -->
+</table>
+
+
 <br />
 <div class="lien_arborescence">
 <a href="{U_INDEX}" class="gen">{L_INDEX}</a>
@@ -155,7 +154,7 @@
 
 
 <br />
-<div class="info_bas_page" style="clear:both;">
+<div class="info_bas_page">
 	{LOGGED_IN_USER_LIST} <br />
 	<!-- IF S_VIEWTOPIC -->
 		<b><a href="{U_VIEW_FORUM}" accesskey="r">{L_RETURN_TO} {FORUM_NAME}</a></b>

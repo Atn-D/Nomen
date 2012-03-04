@@ -2,53 +2,52 @@
 
 
 <!-- IF forumrow.S_IS_CAT or forumrow.S_IS_LINK or forumrow.S_NO_CAT -->
-<!-- IF not forumrow.S_FIRST_ROW -->
-<!-- IF not S_IS_BOT and U_MARK_FORUMS -->
-<tr id="tableau_forum_footer">
-    <td colspan="7" align="right" style="border:0px;padding-right:20px;background-image: url(" http://sascraft.mtxserv.fr/styles/CS_2.1/theme/images/fond2.png")">
-        <a style="float: right;" href="{U_MARK_FORUMS}">{L_MARK_FORUMS_READ}</a>
-    </td>
-</tr>
-<!-- ENDIF -->
-</tbody>
-</table>
-<!-- ENDIF -->
-<table width="100%" border="0" cellspacing="1" cellpadding="0" class="tableau_forum"  id="{forumrow.FORUM_ID}_hidden" style="display:none">
-    <thead style="border-radius: inherit">
-        <tr>
-            <th colspan="4" width="70%"><h2><a class="expand" href="javascript:void(0)" onclick="expand({forumrow.FORUM_ID});" alt="Agrandir"></a> <a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h2></th>
+	<!-- IF not forumrow.S_FIRST_ROW -->
+		<!-- IF not S_IS_BOT and U_MARK_FORUMS -->
+			<tr id="tableau_forum_footer">
+    			<td colspan="7">
+        			<a href="{U_MARK_FORUMS}">{L_MARK_FORUMS_READ}</a>
+    			</td>
+			</tr>
+		<!-- ENDIF -->
+		</tbody>
+		</table>
+	<!-- ENDIF -->
+	<table width="100%" border="0" class="tableau_forum"  id="hidden_{forumrow.FORUM_ID}" style="display:none">
+        <tr class="tableau_forum_header">
+            <th colspan="4" width="70%"><h2><a class="expand" href="javascript:void(0)" onclick="expand({forumrow.FORUM_ID});"></a> <a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h2></th>
             <th width="8%">{L_TOPICS}</th>
             <th width="8%">{L_POSTS}</th>
             <th width="14%">{L_LAST_POST}</th>
         </tr>
-    </thead>
-</table>
-<table width="100%" border="0" cellspacing="1" cellpadding="0" class="tableau_forum"  id="{forumrow.FORUM_ID}_show" style="display:table">
-    <thead style="border-radius: inherit">
-        <tr>
-            <th colspan="4" width="70%"><h2><a class="contract" href="javascript:void(0)" onclick="contract({forumrow.FORUM_ID});" alt="Réduire"></a> <a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h2></th>
-            <th width="8%">{L_TOPICS}</th>
-            <th width="8%">{L_POSTS}</th>
-            <th width="14%">{L_LAST_POST}</th>
-        </tr>
-    </thead>
-    <tbody>
+	</table>
+	
+	<table width="100%" border="0" class="tableau_forum"  id="show_{forumrow.FORUM_ID}" style="display:table">
+        <thead>
+			<tr class="tableau_forum_header">
+            	<th colspan="4" width="70%"><h2><a class="contract" href="javascript:void(0)" onclick="contract({forumrow.FORUM_ID});"></a><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h2></th>
+            	<th width="8%">{L_TOPICS}</th>
+            	<th width="8%">{L_POSTS}</th>
+            	<th width="14%">{L_LAST_POST}</th>
+        	</tr>
+		</thead>
+    	<tbody>
+	
+	
 <!-- ELSE -->
     <!-- IF forumrow.S_FIRST_ROW -->
-    <table width="100%" border="0" cellspacing="1" cellpadding="0" class="tableau_forum"  id="{forumrow.FORUM_ID}_hidden" style="display:none">
-        <thead style="border-radius: inherit">
-            <tr>
-                <th colspan="4" width="70%"><h2><a class="expand" href="javascript:void(0)" onclick="expand({forumrow.FORUM_ID});" alt="Agrandir"></a> <a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h2></th>
+    <table width="100%" border="0" class="tableau_forum"  id="hidden_{forumrow.FORUM_ID}" style="display:none" >
+            <tr class="tableau_forum_header">
+                <th colspan="4" width="70%"><h2><a class="expand" href="javascript:void(0)" onclick="expand({forumrow.FORUM_ID});"></a> <a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h2></th>
                 <th width="8%">{L_TOPICS}</th>
                 <th width="8%">{L_POSTS}</th>
                 <th width="14%">{L_LAST_POST}</th>
             </tr>
-        </thead>
     </table>
-    <table width="100%" border="0" cellspacing="1" cellpadding="0" class="tableau_forum"  id="{forumrow.FORUM_ID}_show" style="display:table">
-        <thead style="border-radius: inherit">
-            <tr>
-                <th colspan="4" width="70%"><h2><a class="contract" href="javascript:void(0)" onclick="contract({forumrow.FORUM_ID});" alt="Réduire"></a> <a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h2></th>
+    <table width="100%" border="0" class="tableau_forum"  id="show_{forumrow.FORUM_ID}" style="display:table">
+        <thead>
+            <tr class="tableau_forum_header">
+                <th colspan="4" width="70%"><h2><a class="contract" href="javascript:void(0)" onclick="contract({forumrow.FORUM_ID});"></a> <a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h2></th>
                 <th width="8%">{L_TOPICS}</th>
                 <th width="8%">{L_POSTS}</th>
                 <th width="14%">{L_LAST_POST}</th>
@@ -57,9 +56,9 @@
         <tbody>
     <!-- ENDIF -->
     <tr>
-        <td width="10%" align="center"><a class="topictitle" href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_FOLDER_IMG}</a></td>
+        <td width="10%"><a class="topictitle" href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_FOLDER_IMG}</a></td>
         <td class="celluleforum" colspan="3" onclick="location.href='{forumrow.U_VIEWFORUM}'">
-            <center>
+            
                                                                         <!--<a class="topictitle" href="{forumrow.U_VIEWFORUM}">!-->
             <p class="topictitle">
             <!-- IF forumrow.FORUM_IMAGE -->
@@ -68,26 +67,25 @@
             {forumrow.FORUM_NAME}
             </p>
                                                                                     <!--</a>!-->
-            </center>
-            <center>
+            
             <p class="topicsoustitle">
                                                                                     <!--<a class="topicsoustitle" href="{forumrow.U_VIEWFORUM}">!-->
             {forumrow.FORUM_DESC}
             </p>
                                                                                     <!--</a>!-->
-            </center>
+            
 
             <!-- IF forumrow.SUBFORUMS and forumrow.S_LIST_SUBFORUMS -->
             <p class="subforum">{forumrow.L_SUBFORUM_STR} {forumrow.SUBFORUMS}</p>
             <!-- ENDIF -->
         </td>
-        <td align="center">
+        <td>
             {forumrow.TOPICS}
         </td>
-        <td align="center">
+        <td>
             {forumrow.POSTS}
         </td>
-        <td align="center" nowrap="nowrap">
+        <td>
             <!-- IF forumrow.LAST_POST_TIME -->
             <p>
                 <!-- IF forumrow.U_UNAPPROVED_TOPICS -->
@@ -111,17 +109,20 @@
 
 <!-- BEGINELSE -->			
     <tr>
-        <td align="center">{L_NO_FORUMS}</td>
+        <td>{L_NO_FORUMS}</td>
     </tr>				
 
 
 <!-- END forumrow -->
-    <!-- IF not S_IS_BOT and U_MARK_FORUMS -->
-    <tr id="tableau_forum_footer">
-        <td colspan="7" align="right" style="border:0px;padding-right:20px;background-image: url(" http://sascraft.mtxserv.fr/styles/CS_2.1/theme/images/fond2.png")">
-            <a style="float: right;" href="{U_MARK_FORUMS}">{L_MARK_FORUMS_READ}</a>
+</tbody>    
+<!-- IF not S_IS_BOT and U_MARK_FORUMS -->
+<tfoot>
+    <tr class="tableau_forum_footer">
+        <td colspan="7">
+            <a href="{U_MARK_FORUMS}">{L_MARK_FORUMS_READ}</a>
         </td>
     </tr>
+</tfoot>
     <!-- ENDIF -->
-</tbody>	
+	
 </table>

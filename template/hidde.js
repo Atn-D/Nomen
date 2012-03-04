@@ -16,8 +16,8 @@ function getCook(nom) {
 }
 
 function contract(id, register){
-	var div1 = document.getElementById(id+"_show");
-	var div2 = document.getElementById(id+"_hidden");
+	var div1 = document.getElementById("show_"+id);
+	var div2 = document.getElementById("hidden_"+id);
 	
 	if (div1 != null && div2 != null)
 	{
@@ -32,8 +32,8 @@ function contract(id, register){
 	}
 }
 function expand(id){
-	var div1 = document.getElementById(id+"_show");
-	var div2 = document.getElementById(id+"_hidden");	
+	var div1 = document.getElementById("show_"+id);
+	var div2 = document.getElementById("hidden_"+id);	
 	
 	if (div1 != null && div2 != null)
 	{
@@ -51,16 +51,16 @@ function expand(id){
 }
 
 function contractDiv(id){
-	var div1 = document.getElementById(id+"_show");
-	var div2 = document.getElementById(id+"_hidden");
+	var div1 = document.getElementById("show_"+id);
+	var div2 = document.getElementById("hidden_"+id);
 	
 	div1.style.display = "block";
 	div2.style.display = "none";
 	
 }
 function expandDiv(id){
-	var div1 = document.getElementById(id+"_show");
-	var div2 = document.getElementById(id+"_hidden");	
+	var div1 = document.getElementById("show_"+id);
+	var div2 = document.getElementById("hidden_"+id);	
 	
 	div1.style.display = "none";
 	div2.style.display = "block";

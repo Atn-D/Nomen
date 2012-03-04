@@ -4,18 +4,16 @@
 <br />
 
 
-	<a name="faqlinks"></a>
 		<!-- BEGIN faq_block -->
 			
 				<br />
 				
-				<h2>{faq_block.BLOCK_TITLE} :</h2>
+				<h2 id="faqlinks">{faq_block.BLOCK_TITLE} :</h2>
 	
-				<div style="padding-left: 20px;">
+				
 				<!-- BEGIN faq_row -->
 					<p><a href="#f{faq_block.S_ROW_COUNT}r{faq_block.faq_row.S_ROW_COUNT}">{faq_block.faq_row.FAQ_QUESTION}</a></p>
 				<!-- END faq_row -->
-				</div>
 			
 		<!-- END faq_block -->
 	
@@ -38,7 +36,7 @@
 					<strong>{faq_block.faq_row.FAQ_QUESTION}</strong>
 					{faq_block.faq_row.FAQ_ANSWER}
 				</p>
-					<a href="#faqlinks" class="top2" >{L_BACK_TO_TOP}</a>
+					<a href="#faqlinks">{L_BACK_TO_TOP}</a>
 				
 				<!-- IF not faq_block.faq_row.S_LAST_ROW --><hr /><!-- ENDIF -->
 			<!-- END faq_row -->
