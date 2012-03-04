@@ -15,3 +15,52 @@ body{
 #header{
 	text-align:right;
 }
+
+#barre_bouton{
+	border: solid 1px #333;
+}
+
+
+.tableau_forum{
+	border: solid 1px #333;
+}
+
+.tableau_forum td{
+	border: solid 1px #333;
+}
+
+
+#connexion_bas_page{
+	border: solid 1px #333;
+	width:400px;
+	padding:4px;
+	margin:6px;
+}
+
+#info_bas_page{
+	width:80%;
+	margin: 10px auto 10px auto;
+	border: solid 1px #333;
+}
+
+#qui_est_en_ligne_image{
+	width:200px;
+	position:absolute;
+}
+
+#dernier_inscrit_et_total_post{
+	padding-left:210px;
+}
+
+#qui_est_en_ligne{
+	padding-left:210px;
+}
+
+#utilisateur_24h{
+	padding-left:210px;
+}
+
+
+#footer{
+	border: solid 1px #333;
+}
